@@ -3,10 +3,10 @@ from tensorflow.keras import backend as K
 
 class PreRecF1score():
     def __init__(self, num_classes, labels_list):
-    '''Arguments:
-          num_classes: Number of classes
-          label_lists: list of names of classes
-    '''
+        '''Arguments:
+              num_classes: Number of classes
+              label_lists: list of names of classes
+        '''
         self.num_classes = num_classes
         self.labels_list = labels_list
         self.metrics = []
@@ -61,12 +61,12 @@ class PreRecF1score():
         return f1_call
 
     def metrics_call(self, mode='avg'):
-    '''Arguments:
-            mode:  One of {'avg', 'full'}.
-            Default is 'avg'.
-            - 'avg' for average Precision, Recall & F1-Score
-            - 'full' for class-wise descriptive Precision, Recall & F1-Score
-    '''
+        '''Arguments:
+                mode:  One of {'avg', 'full'}.
+                Default is 'avg'.
+                - 'avg' for average Precision, Recall & F1-Score
+                - 'full' for class-wise descriptive Precision, Recall & F1-Score
+        '''
         if(mode=='full'):    
             self.metrics = [self.precision_classwise(i) for i in range(self.num_classes)]
             self.metrics += [self.recall_classwise(i) for i in range(self.num_classes)]
